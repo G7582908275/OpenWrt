@@ -4,7 +4,7 @@
 # https://github.com/yfdoor/OpenWrt
 # Description: GitHub Actions for OpenWrt Build
 
-name: LEDE-Build-Mi_AX3600
+name: LEDE-Build-Cudy_TR3000
 
 # 触发条件
 on:
