@@ -8,15 +8,32 @@ name: LEDE-Build-Cudy_TR3000
 
 # 触发条件
 on:
-  #  push:
-  #    branches:
-  #      - master
-  #    paths:
-  #      - '.config'
-  schedule:
-     - cron: 0 0 1/7 * *
-  #watch:
-  #   types: started
+  workflow_dispatch:
+    inputs:
+      profile:
+        type: choice
+        description: "请选择路由器型号"
+        required: true
+        options:
+          - rpi
+          - rpi-2
+          - rpi-3
+          - rpi-4
+          - rpi-5
+        default: rpi-4
+      include_docker:
+        description: |
+          是否编译 Docker 插件
+        required: true
+        default: 'no'
+        type: choice
+        options:
+          - 'yes'
+          - 'no'
+      size:
+        description: '请输入要编译固件大小 单位(MB)'
+        required: true
+        default: '1024'
 
 # 环境定义
 env:
